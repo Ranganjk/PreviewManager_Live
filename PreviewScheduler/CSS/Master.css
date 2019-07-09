@@ -1,0 +1,389 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.Container {
+    width: 100%;
+    height: auto;
+    font-family: Verdana;
+    color: #000000;
+}
+
+.Header {
+    width: 100%;
+    height: auto;
+    background-color: #213042;
+    color: white;
+}
+
+.Hdr1 {
+    width: 55%;
+    height: auto;
+    font-size: 30px;
+    float: left;
+    padding: 10px;
+}
+
+.Hdr2 {
+    width: 45%;
+    height: auto;
+    min-height: 100px;
+    float: right;
+    font-weight: 600;
+    font-size: 12px;
+    direction: rtl;
+    padding: 10px 10px 0px 0px;
+}
+
+.MainContent {
+    width: 100%;
+    height: auto;
+}
+
+.Footer {
+    width: 100%;
+    height: auto;
+    background-color: #1D2F3D;
+    color: white;
+    bottom: 0;
+    position: fixed;
+}
+
+.FtrTxt {
+    font-size: 10px;
+    width: 90%;
+    float: left;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.Content {
+    padding: 5px;
+    width: 99%;
+    height: auto;
+}
+
+.Menu {
+    width: 100%;
+    height: auto;
+    background-color: #0175A4;
+    color: white;
+}
+
+.search {
+    padding-top: 5px;
+    width: 97%;
+    height: auto;
+    font-style: normal;
+    color: white;
+}
+
+.ViewOption {
+    float: right;
+    padding-right: 5px;
+    margin-top: -40px;
+    width: 10%;
+    height: auto;
+    clear: none;
+    min-height: 40px;
+    direction: rtl;
+}
+
+.ViewDet {
+    width: 100%;
+    height: auto;
+}
+
+.divMenu {
+    margin-top: -5px;
+    width: 17%;
+    max-width: 17%;
+    float: left;
+    /*box-shadow: 0 1px 10px #000;*/
+}
+
+.tbl {
+    width: 93%;
+    margin: 0px 0px 0px 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.treeview {
+    font-weight: 500;
+    color: #000000;
+    width: 100%;
+    overflow-y: no-display;
+    height: auto;
+    font-family: Verdana;
+    font-size: small;
+}
+
+    .treeview img {
+        width: 12px;
+        height: 12px;
+    }
+
+.btn_Custom {
+    margin-top: -3px;
+    background-color: #1693CD;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    width: 110px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+    text-decoration: none;
+}
+
+    .btn_Custom:hover {
+        cursor: pointer;
+        color: darkblue;
+    }
+
+.btn1 {
+    background-color: #1693CD;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    width: 80px;
+    font-weight: 300;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+
+
+
+}
+
+    .btn1:hover {
+        background-color: rgb(62,184,229);
+        color: #fff;
+        padding: 5px 10px 5px 10px;
+        width: 80px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+.AutoExtender {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: .8em;
+    font-weight: normal;
+    border: solid 1px #006699;
+    line-height: 20px;
+    padding: 10px;
+    background-color: White;
+    /*margin-left: 0px;*/
+    max-height: 180px;
+    overflow-y: scroll;
+    margin-top: 0px;
+}
+
+.AutoExtenderList {
+    border-bottom: dashed 1px #006699;
+    cursor: pointer;
+    color: Maroon;
+}
+
+.AutoExtenderHighlight {
+    color: White;
+    background-color: #006699;
+    cursor: pointer;
+}
+
+#divwidth1 {
+    width: 200px !important;
+    height: 180px !important;
+}
+
+    #divwidth1 div {
+        width: 250px !important;
+    }
+
+.divView {
+    width: auto;
+    height: auto;
+    border-color: #976834;
+    border: solid 3px #363670;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: White;
+    font-weight: 500;
+}
+
+.modalBackground {
+    background-color: white;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    z-index: 10000;
+}
+
+.Login {
+    margin: 15% 0px 0px 30%;
+    width: 40%;
+    min-height: 100px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.ReqStr {
+    color: red;
+}
+
+.cover {
+    margin: 50px auto 30px auto;
+    width: 40%;
+    height: auto;
+    border: solid 3px #006BB2;
+    border-radius: 5px;
+}
+
+    .cover:hover {
+        margin: 50px auto 30px auto;
+        width: 40%;
+        height: auto;
+        border: solid 3px #006BB2;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 16px 0px rgba(44, 51, 50, 0.57);
+        -moz-box-shadow: 0px 0px 16px 0px rgba(44, 51, 50, 0.57);
+        box-shadow: 0px 0px 16px 0px rgba(44, 51, 50, 0.57);
+    }
+
+.LnkBtn {
+    color: blue;
+}
+
+    .LnkBtn:hover {
+    }
+
+.lnkHref {
+    margin-top: -3px;
+    background-color: #1693CD;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    width: 110px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+    text-decoration: none;
+}
+
+    .lnkHref:hover {
+        color: darkblue;
+    }
+
+.lnkBtnMng {
+    margin-top: -3px;
+    background-color: #a5cc01;
+    color: #000000;
+    padding: 5px 10px 5px 10px;
+    width: 110px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+    .lnkBtnMng:hover {
+        color: white;
+    }
+
+.lnkHref1 {
+    margin-top: -3px;
+    background-color: #1693CD;
+    color: #fff;
+    padding: 6px 20px 6px 20px;
+    width: 100px;
+    height: 20px;
+    font-family:Verdana;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+    text-decoration: none;
+}
+
+    .lnkHref1:hover {
+        color: darkblue;
+    }
+
+.caldisplay {
+    margin-top: 5px;
+    background-color: white;
+    border: 2px solid #213042;
+    border-radius: 3px;
+    color: black;
+    font-weight: 400;
+}
+
+.CalText {
+    border-color: #0175A4;
+    background-color: #0175A4;
+}
+
+.HideText {
+    visibility: hidden;
+    width: 0px;
+}
+
+.droplist {
+    color: darkblue;
+    background-color: red;
+}
+
+.outer-container {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background: #ffd800;
+}
+
+.inner-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.centered-content {
+    display: inline-block;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.DivHistory
+{
+    color:#000000;
+    width:100%;
+    height:auto;
+    float:left;
+    border:1px solid #ccc;
+    /*box-shadow:0 0px 1px #000;*/
+    font-family: Verdana;
+    font-size:small;
+}

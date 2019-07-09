@@ -1,0 +1,249 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PreviewScheduler.master.cs" Inherits="PreviewScheduler" %>
+
+
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<%@ Register Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<style>
+    div.menu {
+        padding: .4px 0px 4px 0px;
+    }
+
+        div.menu ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            width: auto;
+        }
+
+            div.menu ul li ul li {
+                display: normal;
+                width: 300px;
+            }
+
+            div.menu ul li a, div.menu ul li a:visited {
+                background-color: #465c71;
+                border: 1px #4e667d solid;
+                color: #dde4ec;
+                display: normal;
+                line-height: 1.35em;
+                padding: 4px 20px;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+
+            div.menu ul li {
+                margin: 0 0 0px;
+            }
+
+                div.menu ul li a:hover {
+                    background-color: #bfcbd6;
+                    color: #465c71;
+                    text-decoration: none;
+                }
+
+                div.menu ul li a:active {
+                    background-color: #465c71;
+                    color: #cfdbe6;
+                    text-decoration: none;
+                }
+</style>
+
+<script language="javascript" type="text/javascript">
+
+    function Confirm() {
+        var confirm_value = document.createElement("INPUT");
+        confirm_value.type = "hidden";
+        confirm_value.name = "confirm_value";
+        if (confirm("Are you sure you want to SignOut?")) {
+            confirm_value.value = "Yes";
+        } else {
+            confirm_value.value = "No";
+        }
+        document.forms[0].appendChild(confirm_value);
+    }
+
+    function ConfirmMsg() {
+
+
+        var result = confirm('Are you sure you want to SignOut?');
+
+        if (result) {
+
+            document.getElementById('<%=CnfResult2.ClientID%>').value = "true";
+            return true;
+        }
+        else {
+            document.getElementById('<%=CnfResult2.ClientID%>').value = "false";
+            return false;
+        }
+    }
+
+</script>
+
+
+<body>
+    <form id="form1" runat="server">
+        <div style="background-color: #4D94DB; align-items: center">
+            <asp:Panel ID="Panel4" runat="server" Width="100%" BackColor="#3090C7">
+                <table style="width: 98%; font-family: Verdana; font-size: small;">
+                    <tr>
+                        <td align="left">
+                            <asp:Label ID="lblProjName" runat="server" Font-Bold="false" Font-Names="Calibri" Font-Size="Large" ForeColor="White"></asp:Label>
+                        </td>
+
+                        <td align="right">
+                            <asp:Label ID="Label2" runat="server" Text="Signed in as :" Font-Names="Verdana" Font-Size="Small" Visible="true" Font-Bold="false" ForeColor="White"></asp:Label>
+                            <asp:Label ID="lblUserId" Height="10px" Font-Bold="false" Font-Names="Verdana" Font-Size="Small" ForeColor="White" runat="server" />
+                        </td>
+                        <td align="right" style="width: 250px">
+                            <asp:Label ID="GetserverDateTime" Height="10px" Font-Bold="false" Font-Names="Verdana" Font-Size="Small" ForeColor="White" runat="server" />
+                        </td>
+
+                    </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel ID="Panel5" runat="server" Width="100%" BackColor="#659EC7">
+                <table style="width: 98%; font-family: Verdana; font-size: small;">
+                    <tr>
+                        <td align="left">
+                            <asp:Label ID="lblPreviewCentre" runat="server"  Font-Names="Verdana" Font-Size="Small" Visible="true" Font-Bold="false" ForeColor="White"></asp:Label>
+                            <asp:Label ID="lblVersionNo" Height="10px" Font-Bold="false" Font-Names="Verdana" Font-Size="X-Small" ForeColor="DarkBlue" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                             <asp:Label ID="lblMenuTitle" runat="server" Font-Names="Calibri" Font-Size="Medium" Text=""></asp:Label>
+                            <%--  <asp:Label ID="lblFormTitle" runat="server" Text="" Font-Names="Verdana" Font-Size="Small" Visible="true" Font-Bold="false"></asp:Label>--%>
+                        </td>
+
+
+                        <td align="right" style="width: 550px">
+                            <%-- <asp:Label ID="lblDepartment" runat="server" Text="Department :" Font-Names="Verdana" Font-Size="Small" Visible="true" Font-Bold="false" ForeColor="DarkBlue"></asp:Label>
+                            <asp:Label ID="lblDepartName" runat="server" Text="" Font-Names="Verdana" Font-Size="Small" Visible="true" Font-Bold="false" ForeColor="DarkBlue"></asp:Label>--%>
+                            <%--<asp:Label ID="lblDeptAccess" runat="server" Text="" Font-Names="Verdana" Font-Size="XX-Small" Visible="true" Font-Bold="false" ForeColor="Gray"></asp:Label>--%>
+                            
+                        </td>
+
+                        <td align="right" style="width: 100px">
+                            <asp:LinkButton ID="lbSignOut" Height="10px" Font-Bold="false" Font-Names="Verdana" Font-Underline="false" Font-Size="Small" Text="Sign Out" ForeColor="White" runat="server" Visible="true" OnClick="lblSignOut_Click" OnClientClick="ConfirmMsg()" />
+                            <asp:HiddenField ID="CnfResult2" runat="server" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel ID="Panel1" runat="server" Width="100%" BackColor="White">
+                <table style="width: 98%; font-family: Verdana; font-size: small;">
+                    <tr>
+                        <td align="left">
+                            <%-- <telerik:RadMenu ID="masterquicklinks" runat="server" ShowToggleHandle="false" Skin="Outlook" EnableRoundedCorners="true" EnableShadows="false" ClickToOpen="false" ExpandAnimation-Type="InOutBounce" Flow="Horizontal" DefaultGroupSettings-Flow="Horizontal">
+                                <Items>
+                                    <telerik:RadMenuItem  Text="Quick Links" ExpandMode="ClientSide" ToolTip="Click here to view quick links" Width="100%">
+                                        <GroupSettings ExpandDirection="left" Flow="Horizontal" />
+                                        <Items>
+                                            <telerik:RadMenuItem Font-Names="Verdana" Text="MasterEntries"
+                                                GroupSettings-ExpandDirection="Down" GroupSettings-Flow="Vertical" GroupSettings-RepeatDirection="Vertical">
+                                                <Items>
+                                                    <telerik:RadMenuItem Text="Department" NavigateUrl="DepartmentMasterList.aspx"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Package" NavigateUrl="PackageMasterList.aspx"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Test" NavigateUrl="TestMasterList.aspx" ToolTip=""></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="SubTest" NavigateUrl="SubTestMasterList.aspx"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Message Broadcast" NavigateUrl="MessageBroadcast.aspx"></telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Font-Names="Verdana" Text="Entry Modules"
+                                                GroupSettings-ExpandDirection="Down" GroupSettings-Flow="Vertical" GroupSettings-RepeatDirection="Vertical">
+                                                <Items>
+                                                    <telerik:RadMenuItem Text="Registration" NavigateUrl="PatientRegistrationGrd.aspx"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Appointment" NavigateUrl="DoctorAppointment.aspx?SFR=2&PRSN=0"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Doctor Unavailability" NavigateUrl="Test.aspx"></telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem Text="Doctor Consultation" NavigateUrl="DoctorConsultation.aspx"></telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Font-Names="Verdana" Text="" GroupSettings-ExpandDirection="Down" GroupSettings-Flow="Vertical" GroupSettings-RepeatDirection="Vertical">
+                                                <Items>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                </Items>
+
+                            </telerik:RadMenu>--%>
+
+                            <div style="height: 5px">
+
+                                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="menu">
+                                    <LevelMenuItemStyles>
+                                        <asp:MenuItemStyle CssClass="main_menu" />
+                                        <asp:MenuItemStyle CssClass="level_menu" />
+                                    </LevelMenuItemStyles>
+                                    <StaticSelectedStyle CssClass="selected" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+
+                                </asp:Menu>
+
+                            </div>
+
+
+                        </td>
+
+                        <td align="Center">
+                            <table id="tblBCMessage" runat="server" visible="false">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblBCMessage1" runat="server" Text="" Font-Bold="false" Font-Names="Verdana" Font-Size="Small" ForeColor="DarkBlue"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblBCMessage2" runat="server" Text="" Font-Bold="false" Font-Names="Verdana" Font-Size="Small" ForeColor="DarkBlue"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+
+        </div>
+
+        <div>
+
+            <asp:ScriptManager ID="script2" runat="server"></asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div style="background-color: white; align-items: center">
+            <asp:Panel ID="Panel2" runat="server" Width="100%" HorizontalAlign="left">
+                <table>
+                    <tr>
+                        <td style="width: 40px"></td>
+                        <td>
+                            <asp:Label ID="Label1" runat="server" Text="" Font-Bold="true" Font-Names="Algerian" Font-Size="Large" ForeColor="White"></asp:Label>
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+
+    </form>
+</body>
+</html>
