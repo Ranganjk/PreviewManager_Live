@@ -299,26 +299,26 @@
                                                         </ExpandCollapseColumn>
                                                         <Columns>
 
-                                                            <telerik:GridBoundColumn HeaderText="CaseID" DataField="CaseID" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                            <telerik:GridBoundColumn HeaderText="CaseID" DataField="CaseID" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false" FilterControlWidth="50px"
                                                                 ItemStyle-Wrap="false" AllowFiltering="true" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
 
-                                                            <telerik:GridBoundColumn HeaderText="Name" DataField="Name" ItemStyle-Width="110px" HeaderStyle-Width="110px" HeaderStyle-Wrap="false"
-                                                                ItemStyle-Wrap="false" AllowFiltering="true" Visible="true" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="left" AllowSorting="true"
-                                                                ItemStyle-CssClass="Row1">
-                                                                <HeaderStyle Wrap="False"></HeaderStyle>
-                                                                <ItemStyle Wrap="False"></ItemStyle>
-                                                            </telerik:GridBoundColumn>
-                                                             <telerik:GridBoundColumn HeaderText="Status" DataField="CStatus" ItemStyle-Width="100px" HeaderStyle-Width="100px" HeaderStyle-Wrap="false"
+                                                           
+                                                             <telerik:GridBoundColumn HeaderText="Status" DataField="CStatus" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false" FilterControlWidth="50px"
                                                                 ItemStyle-Wrap="false" AllowFiltering="true" Visible="true" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="left" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1" >
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-
+                                                              <telerik:GridBoundColumn HeaderText="CRO ID/Name" DataField="CRO" ItemStyle-Width="130px" HeaderStyle-Width="130px" HeaderStyle-Wrap="false"
+                                                                ItemStyle-Wrap="false" AllowFiltering="true" Visible="true" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="left" AllowSorting="true"
+                                                                ItemStyle-CssClass="Row1">
+                                                                <HeaderStyle Wrap="False"></HeaderStyle>
+                                                                <ItemStyle Wrap="False"></ItemStyle>
+                                                            </telerik:GridBoundColumn>
 
 
                                                             <telerik:GridBoundColumn HeaderText="Submitted On" DataField="SubDate" ItemStyle-Width="100px" HeaderStyle-Width="100px" HeaderStyle-Wrap="false"
@@ -334,36 +334,49 @@
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-
+                                                            <telerik:GridBoundColumn HeaderText="Name" DataField="Name" ItemStyle-Width="110px" HeaderStyle-Width="110px" HeaderStyle-Wrap="false"
+                                                                ItemStyle-Wrap="false" AllowFiltering="true" Visible="true" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="left" AllowSorting="true"
+                                                                ItemStyle-CssClass="Row1">
+                                                                <HeaderStyle Wrap="False"></HeaderStyle>
+                                                                <ItemStyle Wrap="False"></ItemStyle>
+                                                            </telerik:GridBoundColumn>
                                                            
 
-                                                            <telerik:GridBoundColumn HeaderText="S To R" DataField="SToR" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                            <telerik:GridBoundColumn HeaderText="S To R" DataField="SToR" ItemStyle-Width="50px" HeaderStyle-Width="50px" HeaderStyle-Wrap="false"
                                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1" HeaderTooltip="Submitted to Ready status in minutes">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-                                                            <telerik:GridBoundColumn HeaderText="R To A" DataField="RToA" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                            <telerik:GridBoundColumn HeaderText="R To A" DataField="RToA" ItemStyle-Width="50px" HeaderStyle-Width="50px" HeaderStyle-Wrap="false"
                                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1" HeaderTooltip=" Ready to Assigned status in minutes">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-                                                            <telerik:GridBoundColumn HeaderText="A To D" DataField="AToD" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                            <telerik:GridBoundColumn HeaderText="A To D" DataField="AToD" ItemStyle-Width="50px" HeaderStyle-Width="50px" HeaderStyle-Wrap="false"
                                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1" HeaderTooltip=" Assigned to Done status in minutes">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-                                                            <telerik:GridBoundColumn HeaderText="D To Q" DataField="DToQ" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                           
+                                                            <telerik:GridBoundColumn HeaderText="D To Q" DataField="DToQ" ItemStyle-Width="50px" HeaderStyle-Width="50px" HeaderStyle-Wrap="false"
                                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
                                                                 ItemStyle-CssClass="Row1" HeaderTooltip="Done to QCD status in minutes">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>
-                                                            <telerik:GridBoundColumn HeaderText="Q To U" DataField="QToU" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                            <telerik:GridBoundColumn HeaderText="Q To U" DataField="QToU" ItemStyle-Width="50px" HeaderStyle-Width="50px" HeaderStyle-Wrap="false"
                                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
-                                                                ItemStyle-CssClass="Row1" HeaderTooltip="QCD to Uploaded status in minutes" Aggregate="Count" FooterText="Row Count : " FooterStyle-Font-Bold="true" FooterStyle-HorizontalAlign="Right">
+                                                                ItemStyle-CssClass="Row1" HeaderTooltip="QCD to Uploaded status in minutes" >
+                                                                <HeaderStyle Wrap="False"></HeaderStyle>
+                                                                <ItemStyle Wrap="False"></ItemStyle>
+                                                            </telerik:GridBoundColumn>
+
+                                                             <telerik:GridBoundColumn HeaderText="S To U" DataField="SToU" ItemStyle-Width="80px" HeaderStyle-Width="80px" HeaderStyle-Wrap="false"
+                                                                ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="center" HeaderStyle-HorizontalAlign="center" AllowSorting="true"
+                                                                ItemStyle-CssClass="Row1" HeaderTooltip="Submitted to Uploaded status in minutes" Aggregate="Count" FooterText="Row Count : " FooterStyle-Font-Bold="true" FooterStyle-HorizontalAlign="Right">
                                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                                 <ItemStyle Wrap="False"></ItemStyle>
                                                             </telerik:GridBoundColumn>

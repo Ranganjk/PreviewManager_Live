@@ -28,13 +28,15 @@ public partial class LogDetPopup : System.Web.UI.Page
                 if (SScreen == "1")
                 {
                     Panel1.Visible = true;
-                    Panel2.Visible = false;
+                    Panel2.Visible = true;
                     LoadLogDet(CaseID);
+                    LoadCaseIDDet(CaseID, UL);
                 }
                 else if (SScreen == "2")
                 {
-                    Panel1.Visible = false;
+                    Panel1.Visible = true;
                     Panel2.Visible = true;
+                    LoadLogDet(CaseID);
                     LoadCaseIDDet(CaseID,UL);
                 }
             }

@@ -171,7 +171,7 @@
                                                             </telerik:GridTemplateColumn>
 
                                                             <telerik:GridTemplateColumn ItemStyle-Width="120px" HeaderStyle-Width="120px" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="left"
-                                                                HeaderText="Status" HeaderStyle-Font-Names="Calibri" UniqueName="Status" SortExpression="Status" AllowFiltering="true" DataField="Status" >
+                                                                HeaderText="Status" HeaderStyle-Font-Names="Calibri" UniqueName="Status" SortExpression="Status" AllowFiltering="true" DataField="Status">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton ID="lnkbtnStatus" runat="server" CausesValidation="false" Font-Names="Calibri" Font-Size="Small"
                                                                         Text='<%# Eval("Status")%>' CommandName="Status" CommandArgument='<%# Eval("Status") %>' Font-Underline="false"
@@ -252,9 +252,9 @@
                     </table>
 
                     <table>
-                      <%--  <tr style="height: 5px;"></tr>--%>
+                        <%--  <tr style="height: 5px;"></tr>--%>
 
-                         <tr>
+                        <tr>
                             <td style="width: 20px"></td>
                             <td style="left: auto">
                                 <asp:Label ID="Label5" runat="Server" Text="Statistics" Font-Bold="true" ForeColor="Black" Font-Underline="false" Font-Names="Verdana" Font-Size="Small"></asp:Label>
@@ -263,9 +263,9 @@
 
                         <tr>
                             <td style="width: 20px"></td>
-                             
+
                             <td>
-                                <telerik:RadGrid ID="rdgCount" runat="server" AllowPaging="false" PageSize="20" AutoGenerateColumns="false" Skin="WebBlue" AllowSorting="false"  
+                                <telerik:RadGrid ID="rdgCount" runat="server" AllowPaging="false" PageSize="20" AutoGenerateColumns="false" Skin="WebBlue" AllowSorting="false"
                                     CellSpacing="0" Width="70%" AllowFilteringByColumn="false" MasterTableView-HierarchyDefaultExpanded="true">
 
                                     <ClientSettings>
@@ -287,7 +287,7 @@
                                             <HeaderStyle Width="10px"></HeaderStyle>
                                         </ExpandCollapseColumn>
                                         <Columns>
-                                             <telerik:GridBoundColumn HeaderText="" DataField="Heading" ItemStyle-Width="100px" HeaderStyle-Width="200px" HeaderStyle-Wrap="false" ItemStyle-Font-Bold="true"
+                                            <telerik:GridBoundColumn HeaderText="" DataField="Heading" ItemStyle-Width="100px" HeaderStyle-Width="200px" HeaderStyle-Wrap="false" ItemStyle-Font-Bold="true"
                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" AllowSorting="false"
                                                 ItemStyle-CssClass="Row1">
                                                 <HeaderStyle Wrap="False"></HeaderStyle>
@@ -302,7 +302,7 @@
                                             </telerik:GridBoundColumn>
                                             <telerik:GridBoundColumn HeaderText="Upl.Today" DataField="Today1" ItemStyle-Width="150px" HeaderStyle-Width="150px" HeaderStyle-Wrap="false"
                                                 ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" AllowSorting="false"
-                                                ItemStyle-CssClass="Row1"  HeaderTooltip="Uploaded today">
+                                                ItemStyle-CssClass="Row1" HeaderTooltip="Uploaded today">
                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                 <ItemStyle Wrap="False"></ItemStyle>
                                             </telerik:GridBoundColumn>
@@ -313,7 +313,7 @@
                                                 <ItemStyle Wrap="False"></ItemStyle>
                                             </telerik:GridBoundColumn>
                                             <telerik:GridBoundColumn HeaderText="Upl.Current Month" DataField="CMnth1" ItemStyle-Width="80px" HeaderStyle-Width="40px" HeaderStyle-Wrap="false"
-                                                ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="Center"  HeaderStyle-HorizontalAlign="Center" AllowSorting="false"
+                                                ItemStyle-Wrap="false" AllowFiltering="false" Visible="true" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" AllowSorting="false"
                                                 ItemStyle-CssClass="Row1" HeaderTooltip="No. of case id's uploaded for this month">
                                                 <HeaderStyle Wrap="False"></HeaderStyle>
                                                 <ItemStyle Wrap="False"></ItemStyle>
@@ -356,7 +356,9 @@
                                     <FilterMenu Skin="WebBlue" EnableTheming="True">
                                         <CollapseAnimation Type="OutQuint" Duration="200"></CollapseAnimation>
                                     </FilterMenu>
-                                </telerik:RadGrid>
+                                </telerik:RadGrid><br />
+                                <asp:Label ID="Label1" runat="Server" Text="Total number of case id's (Current month) = Open + Upl.Current Month + BIR-Current Month + Cancelled-Current Month" Font-Bold="false" ForeColor="Black" Font-Underline="false" Font-Names="Verdana" Font-Size="X-Small"></asp:Label>
+
                             </td>
                         </tr>
 
@@ -480,10 +482,10 @@
             </ContentTemplate>
             <Triggers>
 
-                 
+
                 <asp:PostBackTrigger ControlID="BtnShow" />
                 <asp:PostBackTrigger ControlID="BtnnExcelExport" />
-                <asp:PostBackTrigger ControlID="btnPrevUpload" />   
+                <asp:PostBackTrigger ControlID="btnPrevUpload" />
                 <%-- <asp:PostBackTrigger ControlID="btnSave" />
                 <asp:PostBackTrigger ControlID="btnUpdate" />
                 <asp:PostBackTrigger ControlID="btnClear" />
