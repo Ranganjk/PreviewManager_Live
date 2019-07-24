@@ -21,8 +21,17 @@ public partial class PreviewLevelSAdmin : System.Web.UI.Page
         {
             if (!IsPostBack)
             {
+                DateTime sd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                dtpFromDate.SelectedDate = sd;
+                dtpTillDate.SelectedDate = DateTime.Now;
+
                 LoadSubmitted();
                 ChkFailedMails();
+
+
+                
+
+               
 
             }
         }
@@ -340,6 +349,160 @@ public partial class PreviewLevelSAdmin : System.Web.UI.Page
         }
 
 
+    }
+
+    protected void btnCROMapping_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("http://49.50.68.207/CROSearch");
+    }
+
+    protected void btnStatShow_Click(object sender, EventArgs e)
+    {
+        pnlShow.Visible = false;
+        pnlStatTat.Visible = true;
+
+        LoadCount();
+        LoadTAT();
+
+    }
+
+    protected void LoadCount()
+    {
+        SqlProcsNew proc = new SqlProcsNew();
+        DataSet dsCNT = new DataSet();
+
+
+
+        dsCNT = proc.ExecuteSP("SP_SecFetchPreviewDetails",
+            new SqlParameter() { ParameterName = "@iMode", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.Int, Value = 16 },
+            new SqlParameter() { ParameterName = "@UserID", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.NVarChar, Value = Session["UserId"].ToString() });
+
+        if (dsCNT != null && dsCNT.Tables.Count > 0 && dsCNT.Tables[0].Rows.Count > 0)
+        {
+            rdgCount.DataSource = dsCNT.Tables[0];
+            rdgCount.DataBind();
+        }
+        else
+        {
+            rdgCount.DataSource = new String[] { };
+            rdgCount.DataBind();
+        }
+    }
+
+    protected void LoadTAT()
+    {
+        SqlProcsNew proc = new SqlProcsNew();
+        DataSet dsTAT = new DataSet();
+
+        dsTAT = proc.ExecuteSP("SP_SecFetchTATDetails",
+            new SqlParameter() { ParameterName = "@iMode", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.Int, Value = 1 },
+            new SqlParameter() { ParameterName = "@UserID", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.NVarChar, Value = Session["UserId"].ToString() },
+            new SqlParameter() { ParameterName = "@Fromdate", SqlDbType = SqlDbType.DateTime, Value = dtpFromDate.SelectedDate.ToString() },
+            new SqlParameter() { ParameterName = "@Todate", SqlDbType = SqlDbType.DateTime, Value = dtpTillDate.SelectedDate.ToString() });
+
+        if (dsTAT != null && dsTAT.Tables.Count > 0 && dsTAT.Tables[0].Rows.Count > 0)
+        {
+
+            rdgTAT.DataSource = dsTAT.Tables[0];
+            rdgTAT.DataBind();
+        }
+        else
+        {
+            rdgTAT.DataSource = new String[] { };
+            rdgTAT.DataBind();
+        }
+    }
+
+
+    protected void btnExportTat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+
+            SqlProcsNew proc = new SqlProcsNew();
+            //DataSet dsGrid2 = new DataSet();
+
+            DataSet dsTAT = proc.ExecuteSP("SP_SecFetchTATDetails",
+            new SqlParameter() { ParameterName = "@iMode", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.Int, Value = 1 },
+            new SqlParameter() { ParameterName = "@UserID", Direction = ParameterDirection.Input, SqlDbType = SqlDbType.NVarChar, Value = Session["UserId"].ToString() },
+            new SqlParameter() { ParameterName = "@Fromdate", SqlDbType = SqlDbType.DateTime, Value = dtpFromDate.SelectedDate.ToString() },
+            new SqlParameter() { ParameterName = "@Todate", SqlDbType = SqlDbType.DateTime, Value = dtpTillDate.SelectedDate.ToString() });
+
+            if (dsTAT.Tables[0].Rows.Count > 0)
+            {
+
+                DataGrid dg = new DataGrid();
+
+                dg.DataSource = dsTAT.Tables[0];
+                dg.DataBind();
+
+                DateTime sdate = dtpFromDate.SelectedDate.Value;
+                DateTime edate = dtpTillDate.SelectedDate.Value;
+
+                // THE EXCEL FILE.
+                string sFileName = "TAT_SummaryRpt_" + sdate.ToString("dd/MM/yyyy") + " To " + edate.ToString("dd/MM/yyyy") + ".xls";
+                sFileName = sFileName.Replace("/", "");
+
+                // SEND OUTPUT TO THE CLIENT MACHINE USING "RESPONSE OBJECT".
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment; filename=" + sFileName);
+                Response.ContentType = "application/vnd.ms-excel";
+                EnableViewState = false;
+
+                System.IO.StringWriter objSW = new System.IO.StringWriter();
+                System.Web.UI.HtmlTextWriter objHTW = new System.Web.UI.HtmlTextWriter(objSW);
+
+                dg.HeaderStyle.Font.Bold = true;     // SET EXCEL HEADERS AS BOLD.
+                dg.RenderControl(objHTW);
+
+
+                Response.Write("<table><tr><td><b>Turnaround Time(TAT) Report</td><td> From:" + sdate.ToString("dd/MM/yyyy") + "</td><td> To:" + edate.ToString("dd/MM/yyyy") + "</td><td>" + " " + "</td></b></tr></table>");
+
+
+                // STYLE THE SHEET AND WRITE DATA TO IT.
+                Response.Write("<style> TABLE { border:dotted 1px #999; } " +
+                    "TD { border:dotted 1px #D5D5D5; text-align:center } </style>");
+                Response.Write(objSW.ToString());
+
+
+                Response.End();
+                dg = null;
+
+
+            }
+            else
+            {
+                //WebMsgBox.Show(" From" + dtpFromDate.SelectedDate.Value + " To " + dtpTillDate.SelectedDate.Value + " Preview Summary does not exist");
+                WebMsgBox.Show("There are no records to Export");
+            }
+        }
+        catch (Exception ex)
+        {
+            //WebMsgBox.Show(ex.Message);
+        }
+
+    }
+
+    protected void btnQCD_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PreviewLevelSQC.aspx?@UserID=" + Session["UserId"].ToString());
+
+    }
+
+    protected void btnOppDump_Click(object sender, EventArgs e)
+    {
+        try
+        {
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "win",
+            "<script language='javascript'> var iMyWidth;var iMyHeight;  window.open('OppDumpPopup.aspx?UserID=1','NewWin','status=no,height=600,width=1320 ,resizable=No,left=1100,top=250,screenX=20,screenY=25,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no,   NewWin.focus()')</script>", false);
+
+        }
+        catch (Exception ex)
+        {
+            WebMsgBox.Show(ex.Message.ToString());
+        }
     }
 
 }

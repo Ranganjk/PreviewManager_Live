@@ -108,7 +108,7 @@ public partial class PreviewLevelD : System.Web.UI.Page
         CaseID = row.Cells[3].Text.ToString();
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "win",
-        "<script language='javascript'> var iMyWidth;var iMyHeight;  window.open('PLogDetPopup.aspx?SScreen=1&CaseID=" + CaseID + "&UL=1','NewWin','status=no,height=300,width=700 ,resizable=No,left=1500,top=250,screenX=100,screenY=150,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no,   NewWin.focus()')</script>", false);
+        "<script language='javascript'> var iMyWidth;var iMyHeight;  window.open('PLogDetPopup.aspx?SScreen=1&CaseID=" + CaseID + "&UL=1','NewWin','status=no,height=480,width=700 ,resizable=No,left=1500,top=220,screenX=100,screenY=150,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no,   NewWin.focus()')</script>", false);
     }
 
 
@@ -162,7 +162,7 @@ public partial class PreviewLevelD : System.Web.UI.Page
             CaseID = row.Cells[3].Text.ToString();
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "win",
-            "<script language='javascript'> var iMyWidth;var iMyHeight;  window.open('PLogDetPopup.aspx?SScreen=2&CaseID=" + CaseID + "&UL=1','NewWin','status=no,height=450,width=700 ,resizable=No,left=1500,top=250,screenX=100,screenY=150,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no,   NewWin.focus()')</script>", false);
+            "<script language='javascript'> var iMyWidth;var iMyHeight;  window.open('PLogDetPopup.aspx?SScreen=2&CaseID=" + CaseID + "&UL=1','NewWin','status=no,height=480,width=700 ,resizable=No,left=1500,top=220,screenX=100,screenY=150,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no,   NewWin.focus()')</script>", false);
 
         }
         catch (Exception ex)
